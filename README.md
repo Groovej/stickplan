@@ -1,4 +1,1 @@
-stickplan
-=========
-
-Educational application for SoftServe interns
+== Stickplan
