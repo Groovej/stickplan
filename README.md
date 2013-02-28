@@ -18,6 +18,7 @@ Your actions in this project can be separated to a several task groups:
 - create database structure and all App-related Rails files: routes, modules, controllers.
 - create and implement Backbone suite to handle user's interactions inside applications.
 - write RSpec tests for Rails's models and controllers. 
+- setup and implement Travis CI integration (and place cool green badge in README =))
 
 User case scenarious
 --
