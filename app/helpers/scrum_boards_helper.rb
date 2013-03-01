@@ -1,0 +1,2 @@
+module ScrumBoardsHelper
+end
