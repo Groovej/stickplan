@@ -20,7 +20,8 @@
     <td><%= link_to 'Show', sticker %></td>
     <td><%= link_to 'Edit', edit_sticker_path(sticker) %></td>
     <!-- ><td><%= link_to 'Destroy', {:controller => 'stickers', :action => 'destroy', :id => sticker.id}, :confirm => 'Are you sure?', :method => :delete, :remote => false %></td> -->
-	<td><%= link_to "Delete", sticker, :confirm => "Are you sure?", :method => :delete %></td>  
+	<td><%= link_to 'Delete', sticker, :method => :delete, data: { confirm: 'Are you sure?' } %></td>
+  	
   </tr>
 <% end %>
 </table>

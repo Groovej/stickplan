@@ -25,7 +25,7 @@ class StickersController < ApplicationController
     if @sticker.save
       # If save succeeds, redirect to the list action
       flash[:notice] = "Sticker created succesfull"
-      redirect_to(:action => 'list')
+      redirect_to(:action => 'index')
     else
       # If save fails, redisplay the form so user can fix problems
       render('new')
@@ -47,9 +47,7 @@ class StickersController < ApplicationController
   # def delete
    # @sticker = Sticker.find(params[:id])
   #end
-  
-  
-  
+    
  def update
     @sticker = Sticker.find(params[:id])
 
@@ -65,13 +63,14 @@ class StickersController < ApplicationController
   end
   
   def destroy
-      @sticker = Sticker.find(params[:id]) 
-      @sticker.destroy
-      
+     @sticker = Sticker.find(params[:id]) 
+     @sticker.destroy
+      flash[:notice] = "Sticker destroyed."
     respond_to do |format|
-      format.html {redirect_to posts_url}
-      format.json {head :no_content }
+     format.html {redirect_to stickers_url}
+     format.json {head :no_content }
      end
+  
   end
 
 end
