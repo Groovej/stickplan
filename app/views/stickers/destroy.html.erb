@@ -1,0 +1,16 @@
+<div class="page delete">
+  <h2>Delete Page</h2>
+  
+  <%= form_for(:sticker, :url => {:action => 'destroy', :id => @sticker.id}) do |f| -%>
+
+    <p>Are you sure you want to permanently delete this sticker?</p>
+  
+    <p class="reference-name"><%= @sticker.sticker_text %></p>
+  
+    <div class="form-buttons">
+      <%= submit_tag("Delete Sticker") %>
+    </div>
+    
+  <% end %>
+</div>
+<%= link_to('Back', {:action => 'index'}) %>

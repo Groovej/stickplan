@@ -1,0 +1,29 @@
+<h1>Show all stickers id database</h1>
+<%= flash[:notice]%> 
+<table>
+  <tr>
+    <th>Sticker_text</th>
+    <th>Sticker_status</th>
+    <th>Scrum_board_id</th>
+    <th>Background_color</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+ 
+<% @sticker.each do |sticker| %>
+  <tr>
+    <td><%= sticker.sticker_text %></td>
+    <td><%= sticker.sticker_status %></td>
+    <td><%= sticker.scrum_board_id %></td>
+    <td> <%= sticker.background_color %></td>
+    <td><%= link_to 'Show', sticker %></td>
+    <td><%= link_to 'Edit', edit_sticker_path(sticker) %></td>
+    <!-- ><td><%= link_to 'Destroy', {:controller => 'stickers', :action => 'destroy', :id => sticker.id}, :confirm => 'Are you sure?', :method => :delete, :remote => false %></td> -->
+	<td><%= link_to "Delete", sticker, :confirm => "Are you sure?", :method => :delete %></td>  
+  </tr>
+<% end %>
+</table>
+ 
+<br />
+<%= link_to('New sticker', {:action => 'new'}, :class => 'action new') %>

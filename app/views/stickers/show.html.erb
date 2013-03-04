@@ -1,0 +1,22 @@
+<p>
+  <b>Sticker text:</b>
+  <%= @sticker.sticker_text %>
+</p>
+ 
+<p>
+  <b>Sticker status:</b>
+  <%= @sticker.sticker_status %>
+</p>
+ 
+<p>
+  <b>Scrum board id:</b>
+  <%= @sticker.scrum_board_id %>
+</p>
+
+<p>
+  <b>Background color:</b>
+  <%= @sticker.background_color %>
+</p> 
+ 
+<%= link_to('Edit', {:action => 'edit', :id => @sticker.id}) %> |
+<%= link_to('Back to list', {:action => 'index'}) %>

@@ -14,19 +14,19 @@
 ActiveRecord::Schema.define(:version => 20130301134746) do
 
   create_table "scrum_boards", :force => true do |t|
-    t.string   "name_of_board"
+    t.string   "name_of_board", :default => "You don't check the name of your ScrumBoard"
     t.string   "unique_id"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",                                                               :null => false
+    t.datetime "updated_at",                                                               :null => false
   end
 
   create_table "stickers", :force => true do |t|
     t.text     "sticker_text"
     t.string   "sticker_status",   :default => "To_do"
-    t.integer  "scrum_board_id",                        :null => false
-    t.string   "background_color",                      :null => false
-    t.datetime "created_at",                            :null => false
-    t.datetime "updated_at",                            :null => false
+    t.integer  "scrum_board_id",   :default => 1,         :null => false
+    t.string   "background_color", :default => "#00ff00", :null => false
+    t.datetime "created_at",                              :null => false
+    t.datetime "updated_at",                              :null => false
   end
 
 end

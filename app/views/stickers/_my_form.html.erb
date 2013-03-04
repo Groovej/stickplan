@@ -1,0 +1,34 @@
+<%= form_for(@sticker) do |f| %>
+  <% if @sticker.errors.any? %>
+  <div id="errorExplanation">
+    <h2><%= pluralize(@sticker.errors.count, "error") %> prohibited
+        this sticker from being saved:</h2>
+    <ul>
+    <% @sticker.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
+ 
+  <div class="field">
+    <%= f.label :sticker_text %><br />
+    <%= f.text_area(:sticker_text, :size => 15*3) %>
+  </div>
+  <div class="field">
+    <%= f.label :sticker_status %><br />
+    <%= f.collection_select(:sticker_status, ['To_do','In process', 'Done'],:to_s, :to_s) %>
+  </div>
+  <div class="field">
+    <%= f.label :scrum_board_id %><br />
+    <%= f.text_field :scrum_board_id %>
+  </div>
+  <div class="field">
+    <%= f.label :background_clolor %><br />
+    <%= f.text_field :background_color %>
+  </div>
+  
+  <div class="actions">
+    <%= submit_tag("Submit changes") %>
+  </div>
+<% end %>

@@ -3,8 +3,8 @@ class CreateStickers < ActiveRecord::Migration
     create_table :stickers do |t|
       t.text :sticker_text
       t.string :sticker_status, :default => "To_do"
-      t.integer :scrum_board_id, :null => false
-      t.string :background_color, :null => false
+      t.integer :scrum_board_id, :default => 1, :null => false
+      t.string :background_color, :default => "#00ff00", :null => false
       
 
       t.timestamps
