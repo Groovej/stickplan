@@ -1,5 +1,12 @@
 Stickplan::Application.routes.draw do
+    
     resources :stickers
+    
+    resources :scrum_boards
+    
+    resources :scrum_boards do
+        resources :stickers
+     end
   
   match "stickers/index", :to => 'stickers#index'
   

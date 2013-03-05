@@ -1,0 +1,26 @@
+<h1>Show all ScrumBoards</h1>
+<%= flash[:notice]%> 
+<table>
+  <tr>
+    <th> Name of Board</th>
+    <th> Id board</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+ 
+<% @scrum_board.each do |scrum_board| %>
+  <tr>
+    <td><%= scrum_board.name_of_board %></td>
+    <td><%= scrum_board.unique_id %></td>
+    <td><%= link_to 'Show stickers', scrum_board %></td>
+    <td><%= link_to 'Edit', edit_scrum_board_path(scrum_board) %></td>
+    <!-- ><td><%= link_to 'Destroy', {:controller => 'scrum_boards', :action => 'destroy', :id => scrum_board.id}, :confirm => 'Are you sure?', :method => :delete, :remote => false %></td> -->
+	<td><%= link_to 'Delete board', scrum_board, :method => :delete, data: { confirm: 'Are you sure?' } %></td>
+  	
+  </tr>
+<% end %>
+</table>
+ 
+<br />
+<%= link_to('New board', {:action => 'new'}, :class => 'action new') %>

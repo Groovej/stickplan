@@ -1,0 +1,23 @@
+<%= form_for(@scrum_board) do |f| %>
+  <% if @scrum_board.errors.any? %>
+  <div id="errorExplanation">
+    <h2><%= pluralize(@scrum_board.errors.count, "error") %> prohibited
+        this sticker from being saved:</h2>
+    <ul>
+    <% @scrum_board.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
+
+   <div class="field">
+    <%= f.label :name_scrum_board %><br />
+    <%= f.text_field :name_of_board %>
+  </div>
+
+  
+  <div class="actions">
+    <%= submit_tag("Submit") %>
+  </div>
+<% end %>
