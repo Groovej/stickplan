@@ -12,8 +12,8 @@ class ScrumBoardsController < ApplicationController
   
   # Show all tickers into ScrumBoard
   def show
-    @scrum_board = ScrumBoard.find(params[:unique_id])
-
+    @scrum_board = ScrumBoard.find(params[:id])
+    @scrum_size = @scrum_board.stickers.size
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @datum }
@@ -71,9 +71,9 @@ class ScrumBoardsController < ApplicationController
   def destroy
     @scrum_board = ScrumBoard.find(params[:id])
     @scrum_board.destroy
-
+    flash[:notice] = "ScrumBoard by name #{@scrum_board.name_of_board} deleted successfully."
     respond_to do |format|
-      format.html { redirect_to scrum_board_url }
+      format.html { redirect_to scrum_boards_url }
       format.json { head :no_content }
     end
   end

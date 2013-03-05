@@ -1,0 +1,26 @@
+<p>
+  <b>Scrum Board Name:</b>
+  <%= @scrum_board.name_of_board%>
+</p>
+ 
+<p>
+  <b>Id Board</b>
+  <%= @scrum_board.unique_id %>
+</p>
+ 
+<p>
+ <b>Stickers on this board: <%= @scrum_size %> </b> 
+ <table>
+ 	<tr>
+ 	<th>Sticker_text</th>
+ 	</tr>
+ 	<% @scrum_board.stickers.each do |sticker| %>
+  <tr>
+    <td><%= sticker.sticker_text %></td>
+   </tr>
+   <% end %>
+   </table>
+</p> 
+ 
+<%= link_to('Edit', {:action => 'edit', :id => @scrum_board.id}) %> |
+<%= link_to('Back to list', {:action => 'index'}) %>
