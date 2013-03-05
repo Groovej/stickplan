@@ -15,9 +15,12 @@ Goals for interns
 --
 Your actions in this project can be separated to a several task groups:
 - create HAML and SCSS markup based on already created mockups. Also you should create and use WebFonts.
+- prepear and use WebFonts (using [FontSquirrel's WebFont Generator](http://www.fontsquirrel.com/tools/webfont-generator)).
 - create database structure and all App-related Rails files: routes, modules, controllers.
 - create and implement Backbone suite to handle user's interactions inside applications.
 - write RSpec tests for Rails's models and controllers. 
+- setup and implement Travis CI integration (and place cool green badge in README =))
+- publish application at Heroku.com
 
 User case scenarious
 --
@@ -65,3 +68,13 @@ Topics to research
 
 Materials and resources for project
 --
+_PSD files_:
+- [stickplan.psd](http://dl.dropbox.com/u/3459328/stickplan/stickplan.psd)
+- [stickplan - empty page.psd](http://dl.dropbox.com/u/3459328/stickplan/stickplan%20-%20empty%20page.psd)
+
+_Fonts_:
+- [fonts.zip](http://dl.dropbox.com/u/3459328/stickplan/fonts.zip)
+
+_Prepeared images_:
+- [stickers-background-sprite.png](http://dl.dropbox.com/u/3459328/stickplan/stickers-background-sprite.png)
+- [delete-icon.png](http://dl.dropbox.com/u/3459328/stickplan/delete-icon.png)
