@@ -16,8 +16,16 @@ class ScrumBoardsController < ApplicationController
     @scrum_size = @scrum_board.stickers.size
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @datum }
+      format.json { render json: @scrum_board }
     end
+  end
+  
+   # Show all tickers into current ScrumBoard
+  def show_me
+    @scrum_board = ScrumBoard.where(["unique_id =?", params[:id]])
+    my_board = @scrum_board.stickers.size
+     # render :js => "alert('Hello Rails');"
+    render :json => my_board
   end
   
   # create new ScrumBoard
