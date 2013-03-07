@@ -27,39 +27,28 @@ h1 {
 
 
 .sticker {
+  display: block;
   width: 115px;
   height: 114px;
  /* background: yellow;*/
-  position: absolute;
-  top: 300px;
-  left: 300px;
-  font: bold 14px/18px Helvetica, arial;
-  padding: 15px;
+  font: bold 80px Helvetica, arial;
+  text-align: center;
+  vertical-align: middle;
+  padding: 25px;
   text-shadow: #eeeeee 0 1px 1px;
-  color: #515050;
   box-shadow: #666666 0 8px 8px;
   border-top: 1px solid #eeeeee;
-  display: inline;
-   }
-
-.sticker.yellow {
- 
-  background: #fff073;
-  /* Old browsers */
-  background: -moz-linear-gradient(top, #fff073 0%, #ffc446 100%);
-  /* FF3.6+ */
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #fff073), color-stop(100%, #ffc446));
-  /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(top, #fff073 0%, #ffc446 100%);
-  /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient(top, #fff073 0%, #ffc446 100%);
-  /* Opera 11.10+ */
-  background: -ms-linear-gradient(top, #fff073 0%, #ffc446 100%);
-  /* IE10+ */
-  background: linear-gradient(to bottom, #fff073 0%, #ffc446 100%);
-  /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff073', endColorstr='#ffc446',GradientType=0 );
-  /* IE6-9 */ 
+  margin:{
+    left: 0px;
+    top: 0px;
+    right: 15px;
+    bottom: 20px;
+          } 
+  display: inline-block;
+  }
+  
+ .sticker.yellow {
+ @include colorize(#fff073, #ffc446);
  }
 
 .sticker.green {
@@ -74,22 +63,7 @@ h1 {
    @include colorize(#ffbdd8, #dc85c8)
   }
 
-.sticker[data_id="1"] {
-  top: 100px;
-  left: 100px; }
 
-.sticker[data_id="2"] {
-  top: 100px;
-  left: 270px; }
-
-.sticker[data_id="3"] {
-  top: 100px;
-  left: 440px; }
-
-.sticker[data_id="4"] {
-  top: 100px;
-  left: 610px; }
-  
 /* property for main block */
 #main_container{
   width: 100%;
@@ -112,8 +86,14 @@ h1 {
   width: 30%;
   height: 100%;
   float: left;
-  padding-left: 10px;
-  padding-right: 10px;
+ }
+
+.block_to_do{
+  width: 100%;
+  height:100%;
+  position: relative;
+  top: -50px;
+  padding: 10px;
 }
 
 #in_progress{

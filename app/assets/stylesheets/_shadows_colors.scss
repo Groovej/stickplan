@@ -1,5 +1,10 @@
 @mixin colorize($color, $shine){
-
+  
+  color: #515050;
+  font: bold 14px/18px Helvetica, arial;
+  text-align: center;
+  vertical-align: bottom;
+  
   background: #{$color};
   /* Old browsers */
   background: -moz-linear-gradient(top, #{$color} 0%, #{$shine} 99%);

@@ -14,9 +14,12 @@
     
       #to_do
         %h3  To do
-        .sticker  
-          %div{:class => "sticker green", :data_id => "1"} Learn Lisp programming language
-                 
+        .block_to_do
+          .sticker +
+          %div{:class => "sticker yellow"} Learn Lisp programming language
+          %div{:class => "sticker green"} Learn Ruby programming language
+          %div{:class => "sticker blue"} Go to GYM
+
       #in_progress
         %h3  In Progress
       
