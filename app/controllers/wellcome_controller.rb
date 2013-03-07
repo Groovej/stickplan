@@ -1,5 +1,5 @@
 class WellcomeController < ApplicationController
-  layout 'main1' 
+  layout 'main_window' 
   def index
   end
 end

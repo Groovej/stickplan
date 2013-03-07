@@ -1,0 +1,11 @@
+%html
+  %head
+    %title Main page
+    = csrf_meta_tags 
+    = stylesheet_link_tag("application", 'my', :media => "all")
+    = javascript_include_tag "application"
+
+  %body
+    = yield
+      
+    %footer  ...it created by Bogdan Naumenko / SoftServe

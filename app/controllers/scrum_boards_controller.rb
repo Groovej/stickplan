@@ -9,6 +9,10 @@ class ScrumBoardsController < ApplicationController
       format.json { render json: @scrum_board }
     end
   end
+   
+   def id
+    @id
+  end
   
   # Show all tickers into ScrumBoard
   def show
@@ -23,9 +27,11 @@ class ScrumBoardsController < ApplicationController
    # Show all tickers into current ScrumBoard
   def show_me
     @scrum_board = ScrumBoard.where(["unique_id =?", params[:un_id]])
-    my_board = @scrum_board#.stickers.size
+    @my_board = @scrum_board.find(1)
+    variable = @my_board.stickers
+     # my_board = @scrum_board.find(variable)
      # render :js => "alert('Hello Rails');"
-    render :json => my_board
+      render :json => variable
   end
   
   # create new ScrumBoard
@@ -43,7 +49,7 @@ class ScrumBoardsController < ApplicationController
     @scrum_board = ScrumBoard.find(params[:id])
   end 
   
-  #create new ScrumBoard
+   #create new ScrumBoard
   def create
     @scrum_board = ScrumBoard.new(params[:scrum_board])
     param = rand(50**7).to_s(36)
