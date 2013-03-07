@@ -1,0 +1,25 @@
+%html
+  %head
+    %title Main page
+    = csrf_meta_tags 
+    = stylesheet_link_tag("application", 'my2', :media => "all")
+    = javascript_include_tag "application"
+
+  %body
+    #name_of_board
+      %h2  
+        Here will be name of your Scrum Board
+    
+    #main_container
+    
+      #to_do
+        %h3  To do 
+         
+      #in_progress
+        %h3  In Progress
+      
+      #done
+        %h3  Done 
+      
+      = yield
+      %footer  ... it created by &copy; Bogdan Naumenko / SoftServe

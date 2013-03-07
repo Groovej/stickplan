@@ -1,10 +1,29 @@
 body {
   padding: 0;
   margin: 0;
-  height: 100%;
+  height: 700px;
   width: 100%;
   background: #e3dbd2;
-  box-shadow: inset 0 100px 500px black; }
+  box-shadow: inset 0 100px 500px black;
+  color: #fff }
+
+@font-face{
+	font-family: 'AvenirNextLTPro-Bold';
+	src: url('AvenirNextLTPro-Bold.otf');
+  font-weight: normal;
+  font-style: normal;
+	
+	
+}
+
+font {
+	color: #fff;
+	}
+
+h1 {
+	font: bold 58px AvenirNextLTPro-Bold;
+	color: #fff;
+}
 
 div .sticker {
   width: 115px;
@@ -107,3 +126,51 @@ div .sticker {
 .sticker[data-id="4"] {
   top: 100px;
   left: 610px; }
+  
+/* property for main block */
+#main_container{
+  width: 100%;
+  height: 80%;
+  font: bold 18px AvenirNextLTPro-Bold;
+  color: #ebbc00;
+}
+#name_of_board h2{
+	font: bold 48px AvenirNextLTPro-Bold;
+}
+#main_container h3{
+	font: bold 40px AvenirNextLTPro-Bold;
+	color: #ebbc00;
+	position: relative;
+	top: -40px;
+}
+#to_do{
+	text-align: center;
+	width: 30%;
+	height: 100%;
+	float: left;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+#in_progress{
+	text-align: center;
+	width: 34%;
+	height: 100%;
+	float: left;
+	border-left: 2px solid #eaeaea;
+	border-right: 2px solid #eaeaea;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+#done{
+	text-align: center;
+	width: 30%;
+	height: 100%;
+	float: right;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+footer{
+  text-align: center;
+  font: bold 16px AvenirNextLTPro-Bold, arial;
+  color: #229b15;
+}

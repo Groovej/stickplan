@@ -22,8 +22,8 @@ class ScrumBoardsController < ApplicationController
   
    # Show all tickers into current ScrumBoard
   def show_me
-    @scrum_board = ScrumBoard.where(["unique_id =?", params[:id]])
-    my_board = @scrum_board.stickers.size
+    @scrum_board = ScrumBoard.where(["unique_id =?", params[:un_id]])
+    my_board = @scrum_board#.stickers.size
      # render :js => "alert('Hello Rails');"
     render :json => my_board
   end
