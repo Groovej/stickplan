@@ -133,16 +133,16 @@ div .sticker {
   height: 80%;
   font: bold 18px AvenirNextLTPro-Bold;
   color: #ebbc00;
+  
+  
 }
+
 #name_of_board h2{
 	font: bold 48px AvenirNextLTPro-Bold;
 }
-#main_container h3{
-	font: bold 40px AvenirNextLTPro-Bold;
-	color: #ebbc00;
-	position: relative;
-	top: -40px;
-}
+
+#main_container 
+
 #to_do{
 	text-align: center;
 	width: 30%;
@@ -151,6 +151,7 @@ div .sticker {
 	padding-left: 10px;
 	padding-right: 10px;
 }
+
 #in_progress{
 	text-align: center;
 	width: 34%;
@@ -161,6 +162,7 @@ div .sticker {
 	padding-left: 10px;
 	padding-right: 10px;
 }
+
 #done{
 	text-align: center;
 	width: 30%;
@@ -169,6 +171,7 @@ div .sticker {
 	padding-left: 10px;
 	padding-right: 10px;
 }
+
 footer{
   text-align: center;
   font: bold 16px AvenirNextLTPro-Bold, arial;

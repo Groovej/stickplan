@@ -2,7 +2,7 @@
   %head
     %title Main page
     = csrf_meta_tags 
-    = stylesheet_link_tag("application", 'my2', :media => "all")
+    = stylesheet_link_tag("application", 'my', :media => "all")
     = javascript_include_tag "application"
 
   %body
@@ -13,8 +13,10 @@
     #main_container
     
       #to_do
-        %h3  To do 
-         
+        %h3  To do
+        .sticker  
+          %div{:class => "sticker green", :data_id => "1"} Learn Lisp programming language
+                 
       #in_progress
         %h3  In Progress
       
