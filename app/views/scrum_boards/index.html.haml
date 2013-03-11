@@ -1,0 +1,23 @@
+#name_of_board
+  %h2  
+    Wellcome to yours scrum boards
+
+= flash[:notice] 
+%table
+  %tr
+    %th Name of Board
+    %th Id board
+    %th
+    %th
+    %th
+ 
+  - @scrum_board.each do |scrum_board|
+    %tr
+      %td= scrum_board.name_of_board 
+      %td= scrum_board.unique_id
+      %td= link_to 'Show stickers', :controller => "scrum_boards", :action => "show_me", :un_id => scrum_board.unique_id
+      %td= link_to 'Edit', edit_scrum_board_path(scrum_board)
+      %td= link_to 'Delete board', scrum_board, :method => :delete, data: { confirm: 'Are you sure?' }
+
+%br
+= link_to('New board', {:action => 'new'}, :class => 'action new')

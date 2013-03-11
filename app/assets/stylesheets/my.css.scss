@@ -5,7 +5,17 @@ body {
   width: 100%;
   background: #e3dbd2;
   box-shadow: inset 0 100px 500px black;
-  color: #fff }
+  color: #fff;
+  min-width: 800px;}
+
+table{
+  font: bold 18px AvenirNextLTPro-Bold;
+  color: #fff;
+}
+th{
+  font: bold 22px AvenirNextLTPro-Bold;
+  color: #e9a642;
+}
 
 @font-face{
   font-family: 'AvenirNextLTPro-Bold';

@@ -1,5 +1,5 @@
 class ScrumBoardsController < ApplicationController
-
+ layout 'main_window' 
   # show all possible ScrumBoards 
   def index
     @scrum_board = ScrumBoard.all
@@ -27,11 +27,10 @@ class ScrumBoardsController < ApplicationController
    # Show all tickers into current ScrumBoard
   def show_me
     @scrum_board = ScrumBoard.where(["unique_id =?", params[:un_id]])
-    @my_board = @scrum_board.find(1)
+    @my_board = @scrum_board.first
     variable = @my_board.stickers
      # my_board = @scrum_board.find(variable)
-     # render :js => "alert('Hello Rails');"
-      render :json => variable
+     render :json => variable
   end
   
   # create new ScrumBoard
