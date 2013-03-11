@@ -29,9 +29,12 @@ class ScrumBoardsController < ApplicationController
     @scrum_board = ScrumBoard.where(["unique_id =?", params[:un_id]])
     @my_board = @scrum_board.first
     variable = @my_board.stickers
-     # my_board = @scrum_board.find(variable)
-     render :json => variable
+    
+    respond_to do |format|
+      format.html # show_me.html.haml
+      format.json { render :json => variable}
   end
+end
   
   # create new ScrumBoard
   def new
