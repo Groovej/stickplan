@@ -1,0 +1,138 @@
+body {
+  padding: 0;
+  margin: 0;
+  height: 700px;
+  width: 100%;
+  background: #e3dbd2;
+  box-shadow: inset 0 100px 500px black;
+  color: #fff;
+  min-width: 500px;}
+
+table{
+  font: bold 18px AvenirNextLTPro-Bold;
+  color: #fff;
+}
+th{
+  font: bold 22px AvenirNextLTPro-Bold;
+  color: #e9a642;
+}
+
+@font-face{
+  font-family: 'AvenirNextLTPro-Bold';
+  src: url('AvenirNextLTPro-Bold.otf');
+  font-weight: normal;
+  font-style: normal;
+  }
+
+@import "shadows_colors";
+
+font {
+  color: #fff;
+  }
+
+h1 {
+  font: bold 58px AvenirNextLTPro-Bold;
+  color: #fff;
+}
+
+
+.sticker {
+  display: block;
+  width: 115px;
+  height: 114px;
+ /* background: yellow;*/
+  font: bold 80px Helvetica, arial;
+  text-align: center;
+  vertical-align: middle;
+  padding: 25px;
+  text-shadow: #eeeeee 0 1px 1px;
+  box-shadow: #666666 0 8px 8px;
+  border-top: 1px solid #eeeeee;
+  margin:{
+    left: 0px;
+    top: 0px;
+    right: 15px;
+    bottom: 20px;
+          } 
+  display: inline-block;
+  
+  &.yellow {
+     @include colorize(#fff073, #ffc446);
+   }
+  
+  &.green {
+     @include colorize(#caf883, #bac000)
+    }
+  
+  &.blue {
+     @include colorize(#e7f6fb, #93cfdd)
+    }
+  
+  &.purple {
+      @include colorize(#ffbdd8, #dc85c8)
+    }
+}
+
+
+/* property for main block */
+#main_container{
+  width: 100%;
+  height: 80%;
+  font: bold 18px AvenirNextLTPro-Bold;
+    h3 {
+    font: bold 40px AvenirNextLTPro-Bold;
+    color: #ebbc00;
+    position: relative;
+    top: -40px;
+  }
+}
+
+#name_of_board h2{
+  font: bold 48px AvenirNextLTPro-Bold;
+  position: relative;
+  top: 20px;
+  left: 56px;
+}
+
+#to_do{
+  text-align: center;
+  width: 30%;
+  height: 100%;
+  float: left;
+ }
+
+.block_to_do{
+  width: 100%;
+  height:100%;
+  position: relative;
+  top: -50px;
+  padding: 10px;
+}
+
+#in_progress{
+  text-align: center;
+  width: 34%;
+  height: 100%;
+  float: left;
+  border-left: 2px solid #eaeaea;
+  border-right: 2px solid #eaeaea;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+#done{
+  text-align: center;
+  width: 30%;
+  height: 100%;
+  float: right;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.icon_delete{
+  display: none;
+  position: relative;
+  top: 20px;
+  left: -55px;
+  
+}
