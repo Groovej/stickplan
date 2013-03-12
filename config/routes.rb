@@ -66,7 +66,7 @@ Stickplan::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'scrum_boards#index'
+  root :to => 'scrum_boards#new'
 
   # See how all your routes lay out with "rake routes"
 

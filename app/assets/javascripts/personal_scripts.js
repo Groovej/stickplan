@@ -19,11 +19,35 @@ $(document).ready(function(){
    $( ".sticker" ).draggable({
       connectToSortable: ".block_to_do",
       snap: true,
-      snapMode: "both"
+      snapMode: "both",
+      revert: false
       });
+      
       
     $(".block_to_do").disableSelection();
      
+  $( ".block_to_do" ).droppable({
+      drop: function( event, ui ) {
+        $( this )
+          
+          }
+    });
+    
+   $( ".block_in_progress" ).droppable({
+      drop: function( event, ui ) {
+        $( this )
+          
+          }
+    });
+    
+    $( ".block_done" ).droppable({
+      drop: function( event, ui ) {
+        $( this )
+          
+          }
+    });
+    
+   
     
      
  })

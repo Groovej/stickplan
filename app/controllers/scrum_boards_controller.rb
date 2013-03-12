@@ -26,14 +26,18 @@ class ScrumBoardsController < ApplicationController
   
    # Show all tickers into current ScrumBoard
   def show_me
-    @scrum_board = ScrumBoard.where(["unique_id =?", params[:un_id]])
-    @my_board = @scrum_board.first
-    variable = @my_board.stickers
-    
-    respond_to do |format|
-      format.html # show_me.html.haml
-      format.json { render :json => variable}
-  end
+        @scrum_board = ScrumBoard.where(["unique_id =?", params[:un_id]])
+    if @scrum_board.nil?
+          @my_board = @scrum_board.first
+          variable = @my_board.stickers
+          
+          respond_to do |format|
+            format.html # show_me.html.haml
+            format.json { render :json => variable}
+           end
+     else 
+       redirect_to :action => :new
+      end
 end
   
   # create new ScrumBoard

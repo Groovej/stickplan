@@ -61,15 +61,15 @@ h1 {
    }
   
   &.green {
-     @include colorize(#caf883, #bac000)
+     @include colorize(#caf883, #bac000);
     }
   
   &.blue {
-     @include colorize(#e7f6fb, #93cfdd)
+     @include colorize(#e7f6fb, #93cfdd);
     }
   
   &.purple {
-      @include colorize(#ffbdd8, #dc85c8)
+      @include colorize(#ffbdd8, #dc85c8);
     }
 }
 
