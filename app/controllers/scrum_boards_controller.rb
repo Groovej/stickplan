@@ -27,7 +27,7 @@ class ScrumBoardsController < ApplicationController
    # Show all tickers into current ScrumBoard
   def show_me
         @scrum_board = ScrumBoard.where(["unique_id =?", params[:un_id]])
-    if @scrum_board.nil?
+    if @scrum_board.exists?
           @my_board = @scrum_board.first
           variable = @my_board.stickers
           
@@ -63,7 +63,7 @@ end
 
     respond_to do |format|
       if @scrum_board.save
-        format.html { redirect_to @scrum_board }
+        format.html { redirect_to "/show_me/#{@scrum_board.unique_id}" }
         format.json { render json: @scrum_board, status: :created, location: @scrum_board }
       else
         format.html { render action: "new" }
