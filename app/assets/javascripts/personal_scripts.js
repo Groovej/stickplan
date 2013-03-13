@@ -1,11 +1,17 @@
 $(document).ready(function(){
 	
 	// Show/Hide delete_sticker icon
-	$('.sticker').mouseenter(function(){
-		$('.icon_delete').css('display','block');
+	$('.sticker').each(function(){
+	    $(this).mouseenter(function(){
+            $(this).find('.icon_delete').css('display','block');
+        })
 	})
-	$('.sticker').mouseleave(function(){
-		$('.icon_delete').css('display','none');
+	
+	
+	$('.sticker').each(function(){
+	    $(this).mouseleave(function(){
+		  $(this).find('.icon_delete').css('display','none');
+		  })
 	})
 	
 	// drag the stickers
@@ -31,7 +37,7 @@ $(document).ready(function(){
       accept: ".sticker",
       drop: function( event, ui ) {
         $( this )
-          }        
+      }        
     });
     
     /* configurations of block in progress to cach the stickers */
@@ -61,9 +67,8 @@ $(document).ready(function(){
         $( this )
           }        
     });
-   
-    
-   
-    
-     
+ 
+ 
+ 
+ /* ending tag*/     
  })

@@ -8,12 +8,21 @@
     .block_to_do
       .sticker 
         +
-        %a{:href=>"/stickers", :title => "Delete this sticker", :class => "icon_delete"}
+        %a{:href=>"#", :title => "Delete this sticker", :class => "icon_delete"}
           =image_tag("delete-icon.png", :alt => "Delete sticker")
                 
-      %div{:class => "sticker yellow"} Learn Lisp programming language
-      %div{:class => "sticker green"} Learn Ruby programming language
-      %div{:class => "sticker blue"} Go to GYM
+      %div{:class => "sticker yellow"} 
+        Learn Lisp programming language
+        %a{:href=>"#", :title => "Delete this sticker", :class => "icon_delete"}
+          =image_tag("delete-icon.png", :alt => "Delete sticker")
+      %div{:class => "sticker green"} 
+        Learn Ruby programming language
+        %a{:href=>"#", :title => "Delete this sticker", :class => "icon_delete"}
+          =image_tag("delete-icon.png", :alt => "Delete sticker")
+      %div{:class => "sticker blue"} 
+        Go to GYM
+        %a{:href=>"#", :title => "Delete this sticker", :class => "icon_delete"}
+          =image_tag("delete-icon.png", :alt => "Delete sticker")
 
   #in_progress
     %h3  in progress
