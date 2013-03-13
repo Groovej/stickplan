@@ -56,19 +56,19 @@ h1 {
           } 
   display: inline-block;
   
-  &.yellow {
+  &.color.yellow {
      @include colorize(#fff073, #ffc446);
    }
   
-  &.green {
+  &.color.green {
      @include colorize(#caf883, #bac000);
     }
   
-  &.blue {
+  &.color.blue {
      @include colorize(#e7f6fb, #93cfdd);
     }
   
-  &.purple {
+  &.color.purple {
       @include colorize(#ffbdd8, #dc85c8);
     }
 }
