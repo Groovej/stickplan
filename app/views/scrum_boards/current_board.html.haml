@@ -1,0 +1,30 @@
+#name_of_board
+  %h2  
+    = @scrum_board.name_of_board
+    
+#main_container
+  #to_do
+    %h3  todo
+    .block_to_do
+      .sticker 
+        + 
+                        
+      %div{:class => "sticker color yellow"} 
+        Learn Lisp programming language
+        = render "link_to_delete"
+      %div{:class => "sticker color green"} 
+        Learn Ruby programming language
+        = render "link_to_delete"
+      %div{:class => "sticker color blue"} 
+        Go to GYM
+        = render "link_to_delete"
+
+  #in_progress
+    %h3  in progress
+    .block_in_progress
+      %div{:class => "sticker color purple"} 
+        Just Fish sticker
+        = render "link_to_delete"
+  #done
+    %h3  done
+    .block_done

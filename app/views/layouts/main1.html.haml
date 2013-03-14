@@ -1,6 +1,6 @@
 %html
   %head
-    %title Main page
+    %title  Your scrum_board
     = csrf_meta_tags 
     = stylesheet_link_tag("application", 'my', :media => "all")
     = javascript_include_tag "application"
@@ -27,6 +27,5 @@
       #done
         %h3  Done 
       
-    = yield
-      
+         
     %footer  ...it created by Bogdan Naumenko / SoftServe

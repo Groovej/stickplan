@@ -8,9 +8,7 @@ Stickplan::Application.routes.draw do
         resources :stickers
      end
   
-  match "stickers/index", :to => 'stickers#index'
-  
-  match "/:un_id", :to => 'scrum_boards#show_me'
+  match "/:un_id", :to => 'scrum_boards#current_board'
   match "show_me/:un_id", :to =>  'scrum_boards#show_me'
   
   get "wellcome/index"
