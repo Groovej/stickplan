@@ -10,61 +10,48 @@ class ScrumBoardsController < ApplicationController
     end
   end
    
-   def id
-    @id
-  end
-  
-  # Show all tickers into ScrumBoard
+   # Show current ScrumBoard
   def show
-    @scrum_board = ScrumBoard.find(params[:id])
-    @scrum_size = @scrum_board.stickers.size
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @scrum_board }
-    end
-  end
-  
-   # Show all tickers into current ScrumBoard
-  def show_me
-     @scrum_board = ScrumBoard.where(["unique_id =?", params[:un_id]])
-    if @scrum_board.exists?
-          @my_board = @scrum_board.first
-          variable = @my_board.stickers
-          
+      @scrum_board = ScrumBoard.where(["unique_id = ?" , params[:id]])
+       if @scrum_board.exists?
+         @my_board = @scrum_board.first
+                   
           respond_to do |format|
-            format.html # show_me.html.haml
-            format.json { render :json => variable}
+            format.html # show.html.haml
+            format.json { render :json => @scrum_board}
            end
      else 
-       redirect_to :action => :new
-      end
-end
+       render :text => 'WTF?'
+     end
+  end
   
   # create new ScrumBoard
   def new
     @scrum_board = ScrumBoard.new
     param = rand(50**7).to_s(36)
     @scrum_board.update_attributes(:unique_id => param)
-    if @scrum_board.save
+    if @scrum_board.save(:validate => false)
       respond_to do |format|
-        format.html {redirect_to :action => "show_me", :un_id => param}
+        format.html { redirect_to scrum_board_path(:id => param) }
         format.json { render json: @scrum_board }
       end
+    else 
+      render :text => "Error #{@scrum_board.errors.inspect}"
     end
+    
   end
   
   
   #current board with out entered name
   def current_board
-    @scrum_board = ScrumBoard.where(["unique_id =?", params[:un_id]])
-    
-    respond_to do |format|
-      format.html
+    @scrum_board = ScrumBoard.where(["unique_id =?", params[:un_id]]).first
+          variable = @scrum_board.stickers
+          respond_to do |format|
+      format.html #current_bord.html
+      format.json {render :json => variable}
     end
     
   end   
-  
-  
   
   
   #edit ScrumBoard
@@ -72,28 +59,16 @@ end
     @scrum_board = ScrumBoard.find(params[:id])
   end 
   
-   #create new ScrumBoard
-  def create
-    @scrum_board = ScrumBoard.new(params[:scrum_board])
-    respond_to do |format|
-      if @scrum_board.save
-        format.html { redirect_to "#{@scrum_board.unique_id}" }
-        format.json { render json: @scrum_board, status: :created, location: @scrum_board }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @scrum_board.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
+   
+  #PUT
   # Update state of ScrumBoard
   def update
     
     @scrum_board = ScrumBoard.find(params[:id])
-
-    respond_to do |format|
+    
+      respond_to do |format|
       if @scrum_board.update_attributes(params[:scrum_board])
-        format.html { redirect_to :action => 'current_board', :un_id => "{@scrum_board.unique_id}"}
+        format.html { redirect_to :action => 'current_board', :un_id => "#{@scrum_board.unique_id}"}
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

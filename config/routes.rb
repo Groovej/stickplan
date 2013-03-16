@@ -4,18 +4,16 @@ Stickplan::Application.routes.draw do
     
     resources :scrum_boards
     
-    resources :scrum_boards do
+     resources :scrum_boards do
         resources :stickers
      end
   
   match "/:un_id", :to => 'scrum_boards#current_board'
-  match "show_me/:un_id", :to =>  'scrum_boards#show_me'
   
-  get "wellcome/index"
+   
+  match "scrum_boards/:un_id", :to => 'scrum_boards#show'
   
- 
-
-  # The priority is based upon order of creation:
+ # The priority is based upon order of creation:
   # first created -> highest priority.
 
   # Sample of regular route:

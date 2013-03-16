@@ -1,14 +1,9 @@
-<%= form_for(@scrum_board) do |f| %>
+<%= form_for(@my_board) do |f| %>
   
   <div class="field">
-    <%= f.label :name_scrum_board %><br />
-    <%= f.text_field :name_of_board %>
+          <%= f.text_field :name_of_board, :size => "45", :autofocus => :autofocus, :id => "name_of_board", :placeholder => "Type new project name here", :minlength => 5%>
+    
   </div> 
-  
-   
  
 <% end %>
 
- <div class="actions">
-    <%= submit_tag("Submit") %>
-  </div>

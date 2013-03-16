@@ -156,9 +156,33 @@ h1{
   color:#ebbc00
 }
 .field{
-  padding-left: 30px;
-  font: bold 28px AvenirNextLTPro-Bold;
+padding-left: 50px;
+margin: 0px;
+
 }
+
+input{
+  margin: 0px;
+  padding: 0px;
+  display: block;
+  font: bold 40px AvenirNextLTPro-Bold;
+  height: 100px;
+  width: 600px;
+  color: #000;
+  opacity: 1;
+  &:focus {outline: none;};
+     background-image: url('images/untitled-1.png');
+    background-attachment:fixed;
+  background: rgba( 255, 255, 255, 0);
+  border: 0px solid #fff;
+}
+
 .actions{
   padding-left: 30px;
+}
+
+#remember{
+  position: realtive;
+  font: bold 20px AvenirNextLTPro-Bold;
+  color: #e90000;
 }

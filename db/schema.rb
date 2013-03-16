@@ -14,10 +14,10 @@
 ActiveRecord::Schema.define(:version => 20130301134746) do
 
   create_table "scrum_boards", :force => true do |t|
-    t.string   "name_of_board", :default => "You don't check the name of your ScrumBoard"
+    t.string   "name_of_board"
     t.string   "unique_id"
-    t.datetime "created_at",                                                               :null => false
-    t.datetime "updated_at",                                                               :null => false
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
   create_table "stickers", :force => true do |t|
