@@ -72,5 +72,14 @@ class StickersController < ApplicationController
      end
   
   end
+  
+  def save_stickers(data)
+   data.each {|sticker| Sticker.create(:sticker_text => sticker.fetch(0), :sticker_status => sticker.fetch(3), :scrum_board_id => sticker.fetch(2), :background_color => sticker.at(1))}
+    if 1 == 1 
+      render :text => "Your Stickers was updated successfully!!"
+    else
+      render :text => "Update stickers was crashed!!"
+    end
+  end
 
 end

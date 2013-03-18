@@ -9,7 +9,7 @@ Stickplan::Application.routes.draw do
      end
   
   match "/:un_id", :to => 'scrum_boards#current_board'
-  
+  match "/show_me/send", :to  => 'stickers#save_stickers'
    
   match "scrum_boards/:un_id", :to => 'scrum_boards#show'
   

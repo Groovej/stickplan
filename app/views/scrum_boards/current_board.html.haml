@@ -1,6 +1,8 @@
-#name_of_board
+#name_of_board{:board_id => @scrum_board.id}
   %h2  
     = @scrum_board.name_of_board
+  %button{:id => "submit_changes", :name => "submit_changes"} Sync with server
+  .message    
     
 #main_container
   #to_do
@@ -9,10 +11,10 @@
       %div{:class => "sticker", :id => "not_draggable"}
         + 
                         
-      %div{:class => "sticker color yellow"} 
+      %div{:class => "sticker color yellow ", :id=>"testing"} 
         Learn Lisp programming language
         = render "link_to_delete"
-      %div{:class => "sticker color green"} 
+      %div{:class => "sticker color green", :data => {:current_status => "todo"}} 
         Learn Ruby programming language
         = render "link_to_delete"
       %div{:class => "sticker color blue"} 

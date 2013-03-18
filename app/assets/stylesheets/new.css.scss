@@ -84,7 +84,9 @@ h1 {
     color: #ebbc00;
     position: relative;
     top: -40px;
-  }
+  };
+  position: relative;
+  top: -50px;
 }
 
 #name_of_board h2{
@@ -180,9 +182,26 @@ input{
 .actions{
   padding-left: 30px;
 }
-
+// hint on number of characters in the name of the board
 #remember{
   position: realtive;
   font: bold 20px AvenirNextLTPro-Bold;
-  color: #e90000;
+  color: #ff0000;
+}
+
+#submit_changes{
+  display: inline-block;
+  position: relative;
+  top: -100px;
+  font: bold 20px AvenirNextLTPro-Bold;
+  color: #00ff00;
+  height: 50px;
+  width: 150px;
+  type: button;
+   background: #87837f; 
+    -moz-box-shadow: 0 0 30px rgba(0,0,0,0.5); /* Для Firefox */
+    -webkit-box-shadow: 0 0 30px rgba(0,0,0,0.5); /* Для Safari и Chrome */
+    box-shadow: 0 0 30px rgba(0,0,0,0.5); /* Параметры тени */
+  border-radius: 10px;  
+  
 }
