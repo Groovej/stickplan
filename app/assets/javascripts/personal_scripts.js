@@ -97,7 +97,8 @@ $(document).ready(function(){
     })
 
 // add a new cticker to current board
-  $("#not_draggable").click(function(){
+  $("#not_draggable").click(function(event){
+      event.stopPropagation();
       var arr = ["yellow", "blue", "green", "purple"];
       var rand = Math.floor( Math.random() * arr.length );
         //alert(arr[rand]);
@@ -105,40 +106,48 @@ $(document).ready(function(){
       
       $('body').delegate(".sticker:not(#not_draggable)", "mouseenter", function(){
           $(this).find('.icon_delete').css('display','block');
-      })
+      });
        
        $('body').delegate(".sticker:not(#not_draggable)", "mouseleave", function(){
           $(this).find('.icon_delete').css('display','none');
-      })
+      });
       
       $('body').delegate(".icon_delete", "click", function(){
            $(this).parent().remove();
-      })
+      });
       
-      $('body').delegate(".sticker:not(#not_draggable)", "dblclick", function(){
+      $('body').delegate(".sticker:not(#not_draggable)", "dblclick", function(event){
+            event.stopImmediatePropagation();
             var variable1 = $(this).text();
             var variable = variable1.trim();
                 $(this).append('<textarea style="resize: none; overflow: hidden;" autofocus cols="17" rows="4" maxlength="100" scrolling="off">' + variable + ' </textarea>');
-             // alert(variable);
-        })
+              //alert(variable);
+            return false;
+             
+        
+       }); 
         
       $('.sticker:not(#not_draggable)').delegate("textarea","keydown", function(event){        
-        if (event.keyCode == 13){
-            var text1 = $(this).val() + '<a href="#" title="Delete this sticker" class="icon_delete"> <img src="http://localhost:3000/assets/delete-icon.png" alt="Delete sticker"/> </a>';
-          $(this).parent().html(text1);
-          $(this).remove(); 
-        };   
-           });
+            if (event.keyCode == 13){
+                var text1 = $(this).val() + '<a href="#" title="Delete this sticker" class="icon_delete"> <img src="http://localhost:3000/assets/delete-icon.png" alt="Delete sticker"/> </a>';
+              $(this).parent().html(text1);
+              $(this).remove(); 
+            };   
+          });
+            
       $('.sticker:not(#not_draggable)').delegate("textarea", "blur", function(){
-          var text1 = $(this).val() + '<a href="#" title="Delete this sticker" class="icon_delete"> <img src="http://localhost:3000/assets/delete-icon.png" alt="Delete sticker"/> </a>';
-          $(this).parent().html(text1);
-          $(this).remove();
-      })
+              var text1 = $(this).val() + '<a href="#" title="Delete this sticker" class="icon_delete"> <img src="http://localhost:3000/assets/delete-icon.png" alt="Delete sticker"/> </a>';
+              $(this).parent().html(text1);
+              $(this).remove();
+         });
       
-       $('body').delegate(".icon_delete", "click", function(){
-          $(this).parent().remove();    
-       });   
-     
+      $('body').delegate(".icon_delete", "click", function(){
+              $(this).parent().remove();    
+           }); 
+           
+      return false;
+
+          
   })
   
   // delete current sticker
