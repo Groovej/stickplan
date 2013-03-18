@@ -119,8 +119,9 @@ $(document).ready(function(){
             var variable1 = $(this).text();
             var variable = variable1.trim();
                 $(this).append('<textarea style="resize: none; overflow: hidden;" autofocus cols="17" rows="4" maxlength="100" scrolling="off">' + variable + ' </textarea>');
-            // alert(variable);
+             // alert(variable);
         })
+        
       $('.sticker:not(#not_draggable)').delegate("textarea","keydown", function(event){        
         if (event.keyCode == 13){
             var text1 = $(this).val() + '<a href="#" title="Delete this sticker" class="icon_delete"> <img src="http://localhost:3000/assets/delete-icon.png" alt="Delete sticker"/> </a>';
@@ -132,7 +133,11 @@ $(document).ready(function(){
           var text1 = $(this).val() + '<a href="#" title="Delete this sticker" class="icon_delete"> <img src="http://localhost:3000/assets/delete-icon.png" alt="Delete sticker"/> </a>';
           $(this).parent().html(text1);
           $(this).remove();
-      })   
+      })
+      
+       $('body').delegate(".icon_delete", "click", function(){
+          $(this).parent().remove();    
+       });   
      
   })
   
@@ -146,19 +151,25 @@ $(document).ready(function(){
       var variable1 = $(this).text();
       var variable = variable1.trim();
       $(this).append('<textarea style="resize: none; overflow: hidden;" autofocus cols="17" rows="4" maxlength="100" scrolling="off">' + variable + ' </textarea>');
+      
       // alert(variable);
       $('body').delegate("textarea","keydown", function(event){
         if (event.keyCode == 13){
-            var text1 = $(this).val() + '<a href="#" title="Delete this sticker" class="icon_delete"> <img src="http://localhost:3000/assets/delete-icon.png" alt="Delete sticker"/> </a>';
+            var text1 = $(this).val() + ' <a href="#" title="Delete this sticker" class="icon_delete"> <img src="http://localhost:3000/assets/delete-icon.png" alt="Delete sticker"/> </a>';
           $(this).parent().html(text1);
-          //$("textarea").remove(); 
+          $("textarea").remove(); 
         };   
       });
-      $('body').delegate("textarea", "blur", function(){
-          var text1 = $(this).val() + '<a href="#" title="Delete this sticker" class="icon_delete"> <img src="http://localhost:3000/assets/delete-icon.png" alt="Delete sticker"/> </a>';
-          $(this).parent().text(text1);
+      
+      $('body').delegate("textarea", "focusout", function(){
+          var text1 = $(this).val() + ' <a href="#" title="Delete this sticker" class="icon_delete"> <img src="http://localhost:3000/assets/delete-icon.png" alt="Delete sticker"/> </a>';
+          $(this).parent().html(text1);
           $(this).remove();
-      })
+      });
+        
+       $('body').delegate(".icon_delete", "click", function(){
+          $(this).parent().remove();    
+       });
   }) 
   
   /* ending tag*/     
