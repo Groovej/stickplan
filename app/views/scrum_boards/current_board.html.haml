@@ -10,23 +10,24 @@
     .block_to_do
       %div{:class => "sticker", :id => "not_draggable"}
         + 
-                        
-      %div{:class => "sticker color yellow ", :id=>"testing"} 
-        Learn Lisp programming language
-        = render "link_to_delete"
-      %div{:class => "sticker color green", :data => {:current_status => "todo"}} 
-        Learn Ruby programming language
-        = render "link_to_delete"
-      %div{:class => "sticker color blue"} 
-        Go to GYM
-        = render "link_to_delete"
-
+      - @stickers_todo.each do |sticker| 
+        %div{:class => "sticker color #{sticker.background_color}", :data => {:current_status => "#{sticker.sticker_status}"}}
+          = sticker.sticker_text
+          = render "link_to_delete"  
+      
   #in_progress
     %h3  in progress
     .block_in_progress
-      %div{:class => "sticker color purple"} 
-        Just Fish sticker
-        = render "link_to_delete"
+      - @stickers_in_progress.each do |sticker| 
+        %div{:class => "sticker color #{sticker.background_color}", :data => {:current_status => "#{sticker.sticker_status}"}}
+          = sticker.sticker_text
+          = render "link_to_delete"
+      
+      
   #done
     %h3  done
     .block_done
+      - @stickers_done.each do |sticker| 
+        %div{:class => "sticker color #{sticker.background_color}", :data => {:current_status => "#{sticker.sticker_status}"}}
+          = sticker.sticker_text
+          = render "link_to_delete"

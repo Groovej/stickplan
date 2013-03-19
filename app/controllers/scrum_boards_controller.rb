@@ -45,8 +45,11 @@ class ScrumBoardsController < ApplicationController
   #current board with out entered name
   def current_board
     @scrum_board = ScrumBoard.where(["unique_id =?", params[:un_id]]).first
-          variable = @scrum_board.stickers
-          respond_to do |format|
+      variable = @scrum_board.stickers
+      @stickers_todo = @scrum_board.stickers.find(:all, :conditions => {:sticker_status => :to_do})
+      @stickers_in_progress = @scrum_board.stickers.find(:all, :conditions => {:sticker_status => :in_progress})
+      @stickers_done = @scrum_board.stickers.find(:all, :conditions => {:sticker_status => :done})
+      respond_to do |format|
       format.html #current_bord.html
       format.json {render :json => variable}
     end

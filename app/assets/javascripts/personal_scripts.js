@@ -12,9 +12,7 @@ $(document).ready(function(){
       $(this).find('.icon_delete').css('display','none');
     });
   });
- 
- 
- 
+
  // add/change parameters for stickers
  
     var stop_message = function (ui) {
@@ -23,8 +21,7 @@ $(document).ready(function(){
       var data = $(ui.item).parent().attr('class').split(" ",[1]).toString().substr(6,11);
       //alert(data)
       $(ui.item).attr('data-current-status', data);
-      
-  }; 
+    }; 
 
      /* configurations of block to_do to cach the stickers */
   $(".block_to_do").sortable({
@@ -84,11 +81,12 @@ $(document).ready(function(){
   
  
  /* Verification input of name scrum_board*/
-    $('#name_of_board').focus(function(){
+    $('#name_of_board').focus(function(event){
         this_val = $(this);
         minlength = this_val.attr('minlength');
         if (minlength !=0 && minlength > 0 && this_val.val().length<minlength){
             this_val.after('<span id="remember">' + minlength +' characters required</span>');
+            event.stopImmediatePropagation();
         }
         
      }).keyup(function(){
@@ -111,7 +109,7 @@ $(document).ready(function(){
       var arr = ["yellow", "blue", "green", "purple"];
       var rand = Math.floor( Math.random() * arr.length );
         //alert(arr[rand]);
-      $('<div class = "sticker color ' + arr[rand] + '" > New sticker <a href="#" title="Delete this sticker" class="icon_delete"> <img src="http://localhost:3000/assets/delete-icon.png" alt="Delete sticker"/> </a> </div>').appendTo(".block_to_do");
+      $('<div class = "sticker color ' + arr[rand] + '" data-current-status="to_do" > New sticker <a href="#" title="Delete this sticker" class="icon_delete"> <img src="http://localhost:3000/assets/delete-icon.png" alt="Delete sticker"/> </a> </div>').appendTo(".block_to_do");
       
       $('body').delegate(".sticker:not(#not_draggable)", "mouseenter", function(){
           $(this).find('.icon_delete').css('display','block');
@@ -153,8 +151,6 @@ $(document).ready(function(){
       }); 
            
       return false;
-
-          
   })
   
   // delete current sticker
@@ -241,18 +237,12 @@ $(document).ready(function(){
             })
             .complete(function(){
             });
-                        
-   
    }
-  
-  
-  
+    
   // Sync with server
   $("#submit_changes").click(function(event){
-     
-     event.stopImmediatePropagation();
+       event.stopImmediatePropagation();
        send_ajax();
- 
   })
   
   /* ending tag*/     
