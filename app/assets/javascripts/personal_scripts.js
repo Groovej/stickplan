@@ -22,7 +22,7 @@ $(document).ready(function(){
  
       var data = $(ui.item).parent().attr('class').split(" ",[1]).toString().substr(6,11);
       //alert(data)
-      $('.sticker:not(#not_draggable)').attr('data-current-status', data);
+      $(ui.item).attr('data-current-status', data);
       
   }; 
 
@@ -107,7 +107,7 @@ $(document).ready(function(){
 
 // add a new cticker to current board
   $("#not_draggable").click(function(event){
-      event.stopPropagation();
+      event.stopImmediatePropagation();
       var arr = ["yellow", "blue", "green", "purple"];
       var rand = Math.floor( Math.random() * arr.length );
         //alert(arr[rand]);
@@ -129,11 +129,9 @@ $(document).ready(function(){
             event.stopImmediatePropagation();
             var variable1 = $(this).text();
             var variable = variable1.trim();
-                $(this).append('<textarea style="resize: none; overflow: hidden;" autofocus cols="17" rows="4" maxlength="100" scrolling="off">' + variable + ' </textarea>');
+                $(this).append('<textarea style="resize: none; overflow: hidden; position:relative; left: -14px; top:5px;" autofocus cols="17" rows="4" maxlength="100" scrolling="off">' + variable + ' </textarea>');
               //alert(variable);
             return false;
-             
-        
        }); 
         
       $('.sticker:not(#not_draggable)').delegate("textarea","keydown", function(event){        
@@ -142,17 +140,17 @@ $(document).ready(function(){
               $(this).parent().html(text1);
               $(this).remove(); 
             };   
-          });
+      });
             
       $('.sticker:not(#not_draggable)').delegate("textarea", "blur", function(){
               var text1 = $(this).val() + '<a href="#" title="Delete this sticker" class="icon_delete"> <img src="http://localhost:3000/assets/delete-icon.png" alt="Delete sticker"/> </a>';
               $(this).parent().html(text1);
               $(this).remove();
-         });
+      });
       
       $('body').delegate(".icon_delete", "click", function(){
               $(this).parent().remove();    
-           }); 
+      }); 
            
       return false;
 
@@ -165,7 +163,8 @@ $(document).ready(function(){
   })
         
   // Change text of sticker
-  $('.sticker:not(#not_draggable)').dblclick(function(){
+  $(".sticker:not(#not_draggable)").dblclick(function(event){
+      event.stopImmediatePropagation();
       var variable1 = $(this).text();
       var variable = variable1.trim();
       $(this).append('<textarea style="resize: none; overflow: hidden; position:relative; left: -14px; top:5px;" autofocus cols="17" rows="4" maxlength="100" scrolling="off">' + variable + ' </textarea>');
@@ -196,58 +195,64 @@ $(document).ready(function(){
         obj_width = $('#submit_changes').width();
         $('#submit_changes').css('left',(w_width-obj_width)/2 );
         }
+        
         move_div();
         
         $(window).resize(function(){
             move_div();
         })
   
-  // Sync with server
-  $("#submit_changes").click(function(){
-      var id_board = $('#name_of_board').attr("board_id");
-     var stickers = new Array;
-     // alert('You click the bard with id = ' + id_board);
-      
-      // one sticker(sticker = s)
-        
-      $("#main_container .sticker:not(#not_draggable)").each(function(i){
-         var s_text = $(this).text().trim();
-          var s_color = $(this).attr('class').toString().substr(14,25);
-          var s_status = $(this).attr('data-current-status');
-          var sticker = new Array;
-             sticker = [s_text, s_color, id_board, s_status];
-        // array with stickers 
-        stickers.push(sticker);
-      });
-      
-           
-      //console.log(stickers);
-      
-      // send data to server
+  // send data to server
       function send_ajax(){
-      $.ajax({
-            type: 'POST',
-            url:'/show_me/send',
-            statusCode: {
-                404: function(){
-                    $('.message').text('Page not found');
+      
+           // check parametrs of stickers
+            var id_board = $('#name_of_board').attr("board_id");
+            var stickers = new Array;
+               
+          $(".sticker:not(#not_draggable)").each(function(i){
+             var s_text = $(this).text().trim();
+              var s_color = $(this).attr('class').toString().substr(14,25);
+              var s_status = $(this).attr('data-current-status');
+              var sticker = new Array;
+                 sticker = [s_text, s_color, id_board, s_status];
+            // array with stickers 
+            stickers.push(sticker);
+          });
+      
+          $.ajax({
+                type: 'POST',
+                beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+                url:'/show_me/send',
+                
+                statusCode: {
+                    404: function(){
+                        $('.message').text('Page not found');
+                    }
+                },
+                data: {stickers: stickers}, 
+                success: function(data){
+                    alert('All your data was saved and serevr answered ' + data);
                 }
-            },
-            data: stickers, 
-            success: function(data){
-                $('.message').html(data);
-            }
-        }).error(function(){
-            alert ('ann error occured!!!')
+            }).error(function(){
+                alert ('ann error occured!!!')
+                })
+            .success(function(){
+                // alert('Ajax was sendet successfully');
             })
-        .success(function(){
-            alert('Ajax was sendet successfully');
-        })
-        .complete(function(){
-        });
-      };
+            .complete(function(){
+            });
+                        
+   
+   }
+  
+  
+  
+  // Sync with server
+  $("#submit_changes").click(function(event){
      
-     send_ajax();
+     event.stopImmediatePropagation();
+       send_ajax();
+ 
   })
   
   /* ending tag*/     
