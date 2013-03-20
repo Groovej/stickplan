@@ -21,7 +21,7 @@ class ScrumBoardsController < ApplicationController
             format.json { render :json => @scrum_board}
            end
      else 
-       render :text => 'WTF?'
+       redirect_to :action => :new
      end
   end
   
