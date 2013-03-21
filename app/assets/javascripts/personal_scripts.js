@@ -155,7 +155,7 @@ $(document).ready(function(){
       var arr = ["yellow", "blue", "green", "purple"];
       var rand = Math.floor( Math.random() * arr.length );
         //alert(arr[rand]);
-      $('<div class = "sticker color ' + arr[rand] + '" data-current-status="to_do" > New sticker <a href="#" title="Delete this sticker" class="icon_delete"> <img src="http://localhost:3000/assets/delete-icon.png" alt="Delete sticker"/> </a> </div>').appendTo(".block_to_do");
+      $('<div class = "sticker color ' + arr[rand] + '" data-current-status="to_do" > New sticker <a href="#" title="Delete this sticker" class="icon_delete"> <img src="assets/delete-icon.png" alt="Delete sticker"/> </a> </div>').appendTo(".block_to_do");
       
       $('body').delegate(".sticker:not(#not_draggable)", "mouseenter", function(){
           $(this).find('.icon_delete').css('display','block');
@@ -182,7 +182,7 @@ $(document).ready(function(){
         
       $('.sticker:not(#not_draggable)').delegate("textarea","keydown", function(event){        
             if (event.keyCode == 13){
-                var text1 = $(this).val() + '<a href="#" title="Delete this sticker" class="icon_delete"> <img src="http://localhost:3000/assets/delete-icon.png" alt="Delete sticker"/> </a>';
+                var text1 = $(this).val() + '<a href="#" title="Delete this sticker" class="icon_delete"> <img src="assets/delete-icon.png" alt="Delete sticker"/> </a>';
               $(this).parent().html(text1);
               $(this).remove();
               send_ajax(); 
@@ -190,7 +190,7 @@ $(document).ready(function(){
       });
             
       $('.sticker:not(#not_draggable)').delegate("textarea", "blur", function(){
-              var text1 = $(this).val() + '<a href="#" title="Delete this sticker" class="icon_delete"> <img src="http://localhost:3000/assets/delete-icon.png" alt="Delete sticker"/> </a>';
+              var text1 = $(this).val() + '<a href="#" title="Delete this sticker" class="icon_delete"> <img src="assets/delete-icon.png" alt="Delete sticker"/> </a>';
               $(this).parent().html(text1);
               $(this).remove();
               send_ajax();
@@ -223,7 +223,7 @@ $(document).ready(function(){
       // alert(variable);
       $('body').delegate("textarea","keydown", function(event){
         if (event.keyCode == 13){
-            var text1 = $(this).val() + ' <a href="#" title="Delete this sticker" class="icon_delete"> <img src="http://localhost:3000/assets/delete-icon.png" alt="Delete sticker"/> </a>';
+            var text1 = $(this).val() + ' <a href="#" title="Delete this sticker" class="icon_delete"> <img src="assets/delete-icon.png" alt="Delete sticker"/> </a>';
           $(this).parent().html(text1);
           $("textarea").remove(); 
           send_ajax();
@@ -231,7 +231,7 @@ $(document).ready(function(){
       });
       
       $('body').delegate("textarea", "focusout", function(){
-          var text1 = $(this).val() + ' <a href="#" title="Delete this sticker" class="icon_delete"> <img src="http://localhost:3000/assets/delete-icon.png" alt="Delete sticker"/> </a>';
+          var text1 = $(this).val() + ' <a href="#" title="Delete this sticker" class="icon_delete"> <img src="assets/delete-icon.png" alt="Delete sticker"/> </a>';
           $(this).parent().html(text1);
           $(this).remove();
           send_ajax();
