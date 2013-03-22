@@ -1,5 +1,5 @@
 class StickersController < ApplicationController
- # http_basic_authenticate_with :name => "new", :password => "new", :except => [:index, :show]
+  http_basic_authenticate_with :name => "new", :password => "new", :accept => :save_sticers
  layout 'main_window'
  def index
    @sticker = Sticker.all

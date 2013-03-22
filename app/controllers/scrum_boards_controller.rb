@@ -1,5 +1,6 @@
 class ScrumBoardsController < ApplicationController
  layout 'main_window' 
+ http_basic_authenticate_with :name => "new", :password => "new", :except => [:new, :show, :current_board]
   # show all possible ScrumBoards 
   def index
     @scrum_board = ScrumBoard.all
