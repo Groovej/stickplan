@@ -54,10 +54,6 @@ $(document).ready(function(){
             });
    }
 
-
-
-
-
  // add/change parameters for stickers
  
     var stop_message = function (ui) {
@@ -124,8 +120,7 @@ $(document).ready(function(){
        disable: false,
        accept: "div[class*='color']",
      });
-  
- 
+
  /* Verification input of name scrum_board*/
     $('#name_of_board').focus(function(event){
         this_val = $(this);
@@ -146,7 +141,6 @@ $(document).ready(function(){
         minlength = this_val.attr('minlength');
          
             this_val.next().remove();
-       
     })
 
 // add a new cticker to current board
@@ -256,13 +250,5 @@ $(document).ready(function(){
             move_div();
         })
   
-  
-   /* 
-  // Sync with server
-  $("#submit_changes").click(function(event){
-       event.stopImmediatePropagation();
-       send_ajax();
-  })
-  */
   /* ending tag*/     
 });
